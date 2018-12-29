@@ -9,43 +9,25 @@
 		<div class="search">
 			<input id="term" onkeyup="mySearch()" placeholder="Search(16pt)" type="text">
 		</div>
-		<div class="gallery">
-			<div class="photo">
-				<img alt="I love hay bales. Took this snap on a drive through the countryside past some straw fields." onclick="openModal();currentSlide(1)" src="images/thumbnails/01.jpg" title="Hay Bales">
-			</div>
-			<div class="photo">
-				<img alt="The lake was so calm today. We had a great view of the snow on the mountains from here." onclick="openModal();currentSlide(2)" src="images/thumbnails/02.jpg" title="Lake">
-			</div>
-			<div class="photo">
-				<img alt="I hiked to the top of the mountain and got this picture of the canyon and trees below." onclick="openModal();currentSlide(3)" src="images/thumbnails/03.jpg" title="Canyon">
-			</div>
-			<div class="photo">
-				<img alt="It was amazing to see an iceberg up close, it was so cold but didn’t snow today." onclick="openModal();currentSlide(4)" src="images/thumbnails/04.jpg" title="Iceberg">
-			</div>
-			<div class="photo">
-				<img alt="The red cliffs were beautiful. It was really hot in the desert but we did a lot of walking through the canyons." onclick="openModal();currentSlide(5)" src="images/thumbnails/05.jpg" title="Desert">
-			</div>
-			<div class="photo">
-				<img alt="Fall is coming, I love when the leaves on the trees start to change color." onclick="openModal();currentSlide(6)" src="images/thumbnails/06.jpg" title="Fall">
-			</div>
-			<div class="photo">
-				<img alt="I drove past this plantation yesterday, everything is so green!" onclick="openModal();currentSlide(7)" src="images/thumbnails/07.jpg" title="Plantation">
-			</div>
-			<div class="photo">
-				<img alt="My summer vacation to the Oregon Coast. I love the sandy dunes!" onclick="openModal();currentSlide(8)" src="images/thumbnails/08.jpg" title="Dunes">
-			</div>
-			<div class="photo">
-				<img alt="We enjoyed a quiet stroll down this countryside lane." onclick="openModal();currentSlide(9)" src="images/thumbnails/09.jpg" title="Countryside Lane">
-			</div>
-			<div class="photo">
-				<img alt="Sunset at the coast! The sky turned a lovely shade of orange." onclick="openModal();currentSlide(10)" src="images/thumbnails/10.jpg" title="Sunset">
-			</div>
-			<div class="photo">
-				<img alt="I did a tour of a cave today and the view of the landscape below was breathtaking." onclick="openModal();currentSlide(11)" src="images/thumbnails/11.jpg" title="Cave">
-			</div>
-			<div class="photo">
-				<img alt="I walked through this meadow of bluebells and got a good view of the snow on the mountain before the fog came in." onclick="openModal();currentSlide(12)" src="images/thumbnails/12.jpg" title="Bluebells">
-			</div>
+		<div id="gallery" class="gallery">
+			<script>
+				function gallery () {
+					for (let i in photos) {
+						let gallery = document.getElementById('gallery')
+						let content = 
+							"<div class='photo'>" + 
+								"<img " + 
+									"alt='" + photos[i].alt +"' " + 
+									"onclick='openModal();currentSlide(" + [i+1] + ")'" + // move over to JQuery
+									"src='images/thumbnails/" + photos[i].src +"' " + 
+									"title='" + photos[i].title +"' " 
+								+ ">" +
+							"</div>";
+						gallery.innerHTML += content
+					}
+				}
+        		window.onload = gallery;
+			</script>
 		</div>
 		<div class="modal" id="myModal">
 			<span class="modal-close" onclick="closeModal()">&times;</span>
@@ -101,8 +83,9 @@
 				<a class="modal-prev" onclick="plusSlides(-1)">&#10094;</a> 
 				<a class="modal-next" onclick="plusSlides(1)">&#10095;</a>
 			</div>
-			<script src="js/search.js"></script> 
-			<script src="js/lightbox.js"></script> 
+			<script src="js/photos.js"></script> 
+			<script src="js/lightbox.js"></script>
+			<script src="js/search.js"></script>  
 		</div>
 	</div>
 </body>

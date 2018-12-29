@@ -2,8 +2,9 @@
 // return only images containing a term.
 // Inspired by...
 // https://www.w3schools.com/howto/howto_js_filter_table.asp
+
 function mySearch () {
-	var input, filter, photos, img, i, term;
+	let input, filter, photos, img, i, term;
 	// Get search term from input box
 	input = document.getElementById("term");
 	// Capitalize search term for data standardization
