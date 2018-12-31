@@ -2,91 +2,18 @@
 <html lang="en">
 <head>
 	<title>Gallery</title>
+	<link href="js/lightbox2-master/src/css/lightbox.css" rel="stylesheet" type="text/css">
 	<link href="css/main.css" rel="stylesheet" type="text/css">
 </head>
-<body>
+<body onload="gallery()">
 	<div class="container">
 		<div class="search">
-			<input id="term" onkeyup="mySearch()" placeholder="Search(16pt)" type="text">
+			<input id="term" onkeyup="search()" placeholder="Search(16pt)">
 		</div>
-		<div id="gallery" class="gallery">
-			<script>
-				function gallery () {
-					for (let i in photos) {
-						let gallery = document.getElementById('gallery')
-						let content = 
-							"<div class='photo'>" + 
-								"<img " + 
-									"alt='" + photos[i].alt +"' " + 
-									"onclick='openModal();currentSlide(" + [i+1] + ")'" + // move over to JQuery
-									"src='images/thumbnails/" + photos[i].src +"' " + 
-									"title='" + photos[i].title +"' " 
-								+ ">" +
-							"</div>";
-						gallery.innerHTML += content
-					}
-				}
-        		window.onload = gallery;
-			</script>
-		</div>
-		<div class="modal" id="myModal">
-			<span class="modal-close" onclick="closeModal()">&times;</span>
-			<div class="modal-content">
-				<div class="slide">
-					<img alt="I love hay bales. Took this snap on a drive through the countryside past some straw fields." src="images/01.jpg">
-					<p class="modal-caption-container">I love hay bales. Took this snap on a drive through the countryside past some straw fields.</p>
-				</div>
-				<div class="slide">
-					<img alt="The lake was so calm today. We had a great view of the snow on the mountains from here." src="images/02.jpg">
-					<p class="modal-caption-container">The lake was so calm today. We had a great view of the snow on the mountains from here.</p>
-				</div>
-				<div class="slide">
-					<img alt="I hiked to the top of the mountain and got this picture of the canyon and trees below." src="images/03.jpg">
-					<p class="modal-caption-container">I hiked to the top of the mountain and got this picture of the canyon and trees below.</p>
-				</div>
-				<div class="slide">
-					<img alt="It was amazing to see an iceberg up close, it was so cold but didn’t snow today." src="images/04.jpg">
-					<p class="modal-caption-container">It was amazing to see an iceberg up close, it was so cold but didn’t snow today.</p>
-				</div>
-				<div class="slide">
-					<img alt="The red cliffs were beautiful. It was really hot in the desert but we did a lot of walking through the canyons." src="images/05.jpg">
-					<p class="modal-caption-container">The red cliffs were beautiful. It was really hot in the desert but we did a lot of walking through the canyons.</p>
-				</div>
-				<div class="slide">
-					<img alt="Fall is coming, I love when the leaves on the trees start to change color." src="images/06.jpg">
-					<p class="modal-caption-container">Fall is coming, I love when the leaves on the trees start to change color.</p>
-				</div>
-				<div class="slide">
-					<img alt="I drove past this plantation yesterday, everything is so green!" src="images/07.jpg">
-					<p class="modal-caption-container">I drove past this plantation yesterday, everything is so green!</p>
-				</div>
-				<div class="slide">
-					<img alt="My summer vacation to the Oregon Coast. I love the sandy dunes!" src="images/08.jpg">
-					<p class="modal-caption-container">My summer vacation to the Oregon Coast. I love the sandy dunes!</p>
-				</div>
-				<div class="slide">
-					<img alt="We enjoyed a quiet stroll down this countryside lane." src="images/09.jpg">
-					<p class="modal-caption-container">We enjoyed a quiet stroll down this countryside lane.</p>
-				</div>
-				<div class="slide">
-					<img alt="Sunset at the coast! The sky turned a lovely shade of orange." src="images/10.jpg">
-					<p class="modal-caption-container">Sunset at the coast! The sky turned a lovely shade of orange.</p>
-				</div>
-				<div class="slide">
-					<img alt="I did a tour of a cave today and the view of the landscape below was breathtaking." src="images/11.jpg">
-					<p class="modal-caption-container">I did a tour of a cave today and the view of the landscape below was breathtaking.</p>
-				</div>
-				<div class="slide">
-					<img alt="I walked through this meadow of bluebells and got a good view of the snow on the mountain before the fog came in." src="images/12.jpg">
-					<p class="modal-caption-container">I walked through this meadow of bluebells and got a good view of the snow on the mountain before the fog came in.</p>
-				</div>
-				<a class="modal-prev" onclick="plusSlides(-1)">&#10094;</a> 
-				<a class="modal-next" onclick="plusSlides(1)">&#10095;</a>
-			</div>
-			<script src="js/photos.js"></script> 
-			<script src="js/lightbox.js"></script>
-			<script src="js/search.js"></script>  
-		</div>
+		<div id="gallery"></div>
 	</div>
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/lightbox2-master/src/js/lightbox.js"></script>
+<script src="js/app.js"></script> 
 </body>
 </html>
