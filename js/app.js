@@ -60,7 +60,7 @@ const photos = [
 		title: "Bluebells",
 		alt: "I walked through this meadow of bluebells and got a good view of the snow on the mountain before the fog came in.",
 	},
-]
+];
 
 // Function to load, build, and format all images to create a gallery
 function gallery() {
@@ -71,15 +71,15 @@ function gallery() {
 			// Design model for when image is clicked
 			let imageModal = $('<a/>').attr({'data-lightbox': 'photos', 'data-title': photo.alt, href: 'images/' + photo.src});
 			// Wrap image in Div
-			let imageCard = $('<div/>').attr({id: index+1, class: 'photo'})
+			let imageCard = $('<div/>').attr({id: index+1, class: 'photo'});
 			// Wrap img in anchor tag in div and append to gallery ID
-			image.appendTo('#gallery').wrap(imageCard).wrap(imageModal)
+			image.appendTo('#gallery').wrap(imageCard).wrap(imageModal);
 		});
 		// Set options for lightbox 2, a jquery plugin
 		lightbox.option({
 			'fitImagesInViewport': true, 
 			'showImageNumberLabel': false, 
-			'wrapAround': true})
+			'wrapAround': true});
 		// Refresh the browser window ever time it is resized to make images more responsive
 		$(window).resize(function(){location.reload();});
 	}
@@ -93,15 +93,15 @@ function search () {
 		// Loop through images
 		$.each(images, function (index, image){
 			// Lookup values will be either the alt or title attribute
-			let lookup = image.alt || image.title
+			let lookup = image.alt || image.title;
 			// Capitalize lookup values and identify index of search term
 			if (lookup.toUpperCase().indexOf(search_term) > -1) {
 				// If search term is found within the lookup values show it
-				$(image).show()
+				$(image).show();
 			}
 			else {
 				// ...is not found within the lookup values hide it
-				$(image).hide()
+				$(image).hide();
 			}
-		})
+		});
 	}
